@@ -4,15 +4,49 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/Practice_9/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vanilla App Template</title>
+		<title>Wether</title>
 		<script type="module" crossorigin src="/Practice_9/index.js"></script>
-		<link rel="stylesheet" crossorigin href="/Practice_9/assets/index-H5U2uT74.css">
-		<link rel="stylesheet" crossorigin href="/Practice_9/assets/vendor-ClUZctLU.css">
+		<link rel="modulepreload" crossorigin href="/Practice_9/assets/vendor-C4uUh5Pk.js">
+		<link rel="stylesheet" crossorigin href="/Practice_9/assets/vendor-BBa1bFoH.css">
+		<link rel="stylesheet" crossorigin href="/Practice_9/assets/index-BFYOi4Ic.css">
 	</head>
 	<body>
-		
+		<header class="header" id="header">
+	<div class="container">
+		<input
+			class="header-input"
+			type="text"
+			placeholder="Enter the city"
+			name="city"
+			data-input-city
+		/>
+		<button type="button" class="header-btns header-location-btn">
+			<svg class="header-svg">
+				<use href="/Practice_9/assets/symbol-defs-fDII5Cjo.svg#location"></use>
+			</svg>
+		</button>
+		<button
+			type="button"
+			class="header-btns header-star-btn"
+			data-add-favorites
+		>
+			<svg class="header-svg">
+				<use href="/Practice_9/assets/symbol-defs-fDII5Cjo.svg#star"></use>
+			</svg>
+		</button>
+		<div class="swiper" data-swiper-cities>
+			<ul class="header-favoritt-list swiper-wrapper" data-favorities-list></ul>
+		</div>
+	</div>
+</header>
 
-		<main></main>
+
+		<main>
+			<section class="home">
+	<div class="container"></div>
+</section>
+
+		</main>
 
 	</body>
 </html>
