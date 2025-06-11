@@ -1,4 +1,37 @@
 @import url('./header.css');
+@import url('./home.css');
+
+@font-face {
+	font-family: 'Lato';
+	src: url('../fonts/Lato-Regular.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: url('../fonts/Lato-Light.ttf') format('ttf');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: url('../fonts/Lato-Bold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lato';
+	src: url('../fonts/Lato-Italic.ttf') format('ttf');
+	font-weight: 400;
+	font-style: italic;
+}
+
+:root {
+	--font-family: 'Lato', sans-serif;
+}
 
 * {
 	padding: 0;
@@ -20,6 +53,9 @@ html {
 }
 
 body {
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 14px;
 }
 
 button {
@@ -36,4 +72,10 @@ a {
 input,
 select {
 	outline: none;
+}
+
+.container {
+	max-width: 320px;
+	padding: 0 20px;
+	margin: 0 auto;
 }
