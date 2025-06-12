@@ -64,8 +64,39 @@ body .iziToast-body {
 	margin: 0 !important;
 }
 
+.header-wrapper {
+	display: flex;
+}
+
+.header-wrapper-nav-button {
+	width: 28px;
+	height: 28px;
+	background-color: transparent;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-wrapper-nav-button:disabled {
+	opacity: 0.3;
+}
+
+.left-arrow {
+	transform: rotateY(180deg);
+}
+
+.header-wrapper-nav-button svg {
+	height: 12px;
+	width: 8px;
+	fill: transparent;
+	stroke: #000;
+}
+
 #header .swiper {
-	padding-left: 31px;
+	width: 218px;
 }
 
 #header .header-favority-list-item {

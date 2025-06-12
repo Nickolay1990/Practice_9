@@ -7,7 +7,11 @@
 			name="city"
 			data-input-city
 		/>
-		<button type="button" class="header-btns header-location-btn">
+		<button
+			type="button"
+			class="header-btns header-location-btn"
+			data-search-button
+		>
 			<svg class="header-svg">
 				<use href="/img/symbol-defs.svg#location"></use>
 			</svg>
@@ -21,8 +25,23 @@
 				<use href="/img/symbol-defs.svg#star"></use>
 			</svg>
 		</button>
-		<div class="swiper" data-swiper-cities>
-			<ul class="header-favoritt-list swiper-wrapper" data-favorities-list></ul>
+		<div class="header-wrapper">
+			<button class="header-wrapper-nav-button left-arrow" data-swiper-left>
+				<svg>
+					<use href="/img/symbol-defs.svg#arrow"></use>
+				</svg>
+			</button>
+			<div class="swiper" data-swiper-cities>
+				<ul
+					class="header-favoritt-list swiper-wrapper"
+					data-favorities-list
+				></ul>
+			</div>
+			<button class="header-wrapper-nav-button" data-swiper-right>
+				<svg>
+					<use href="/img/symbol-defs.svg#arrow"></use>
+				</svg>
+			</button>
 		</div>
 	</div>
 </header>

@@ -13,5 +13,8 @@
 <symbol id="close" viewBox="0 0 32 32">
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4" d="M2.667 2.667l26.667 26.667M2.667 29.333l26.667-26.667"></path>
 </symbol>
+<symbol id="arrow" viewBox="0 0 22 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4.8" d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
+</symbol>
 </defs>
 </svg>
