@@ -4,9 +4,61 @@
 	background-position: center;
 	background-size: cover;
 	height: 100vh;
+	padding-top: 164px;
 }
 @media screen and (min-resolution: 192dpi) {
 	.home {
 		background-image: url(/img/mobile-one@2x.jpg);
 	}
+}
+
+.days-wrapper {
+	background-color: #102136;
+	border-radius: 34px;
+	padding: 32px 0;
+}
+
+.days-cloudy {
+	width: 35px;
+	height: 35px;
+	margin: 0 auto;
+	margin-bottom: 4px;
+}
+
+.days-city-title {
+	font-size: 16px;
+	text-align: center;
+	color: #767d85;
+	margin-bottom: 8px;
+}
+
+.days-inner-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.days-current-temp {
+	font-weight: 300;
+	font-size: 45px;
+	letter-spacing: 0.04em;
+	color: #fff;
+	margin-right: 20px;
+}
+
+.right-border {
+	border-right: 1px solid #27384a;
+	margin-right: 8px;
+	padding-right: 8px;
+}
+
+.temp-min-max-title {
+	text-align: center;
+	color: #767d85;
+}
+
+.min-max-temp {
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
 }

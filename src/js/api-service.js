@@ -9,7 +9,6 @@ export async function getWeather(city) {
 			params: { key: key, q: city },
 		}
 	);
-	console.log(res.data);
 
 	return res;
 }

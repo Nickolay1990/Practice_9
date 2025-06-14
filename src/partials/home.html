@@ -1,3 +1,30 @@
 <section class="home">
-	<div class="container"></div>
+	<div class="container">
+		<div class="days-wrapper">
+			<picture>
+				<source
+					media="(max-width: 767px)"
+					srcset="/img/cloudy.png 1x, /img/cloudy@2x.png 2x"
+				/>
+				<img
+					src="/img/cloudy.png"
+					srcset="/img/cloudy@2x.png 2x"
+					alt="cloudy"
+					class="days-cloudy"
+				/>
+			</picture>
+			<p class="days-city-title">Kyiv, UA</p>
+			<div class="days-inner-wrapper">
+				<p class="days-current-temp">-3</p>
+				<div class="right-border">
+					<p class="temp-min-max-title">min</p>
+					<p class="min-max-temp">-2°</p>
+				</div>
+				<div>
+					<p class="temp-min-max-title">max</p>
+					<p class="min-max-temp">1°</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

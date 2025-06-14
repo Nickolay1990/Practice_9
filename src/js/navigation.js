@@ -4,4 +4,6 @@ export default {
 	favoritiesList: document.querySelector('[data-favorities-list]'),
 	swiperNavButtons: document.querySelectorAll('.header-wrapper-nav-button'),
 	searchButton: document.querySelector('[data-search-button]'),
+	curentTemp: document.querySelector('.days-current-temp'),
+	currentLocation: document.querySelector('.days-city-title'),
 };

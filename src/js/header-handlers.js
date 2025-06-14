@@ -108,6 +108,24 @@ export async function searchCity() {
 	if (!inputValue) {
 		return;
 	}
-	const respons = await getWeather(inputValue);
-	console.log(respons);
+
+	try {
+		const respons = await getWeather(inputValue);
+		setDataWeather(respons.data);
+	} catch {
+		console.log('1');
+	}
+}
+
+function setDataWeather(data) {
+	renderTemp(data.current.temp_c);
+	renderLocation(data.location);
+}
+
+function renderTemp(temp) {
+	DOM.curentTemp.innerHTML = temp;
+}
+
+function renderLocation({ name, country }) {
+	DOM.currentLocation.innerHTML = `${name}, ${country}`;
 }
