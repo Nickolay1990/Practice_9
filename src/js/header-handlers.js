@@ -11,7 +11,7 @@ export function renderFavorites() {
 	initialNavButtons(cities);
 
 	if (!cities || cities.length === 0) {
-		return;
+		DOM.favoritiesList.innerHTML = '';
 	}
 
 	DOM.favoritiesList.innerHTML = createMarkup(cities);
@@ -41,17 +41,11 @@ function createMarkup(cities) {
 		.join('');
 }
 
-export function handleFavore() {
-	const inputValue = DOM.cityInput.value.trim();
-	if (!inputValue) {
-		return;
+export async function handleFavore() {
+	const city = await searchCity();
+	if (city) {
+		setCityStorage(city);
 	}
-
-	const capCity = capitalizeFirst(inputValue);
-
-	setCityStorage(capCity);
-
-	DOM.cityInput.value = '';
 }
 
 function capitalizeFirst(word) {
@@ -83,37 +77,72 @@ function getSuccssesMessage() {
 		timeout: 1000,
 		backgroundColor: 'transparent',
 		close: false,
+		messageColor: 'green',
 	});
 }
 
-export function deleteCity(event) {
-	const button = event.target.closest('[data-city-del-button]');
+function getErrorMessage() {
+	iziToast.error({
+		message: 'City not found',
+		maxWidth: '200px',
+		position: 'topRight',
+		messageSize: '10',
+		icon: '',
+		progressBar: false,
+		timeout: 1000,
+		backgroundColor: 'transparent',
+		close: false,
+		messageColor: 'red',
+	});
+}
 
-	if (!button) {
+export function CheckEventClick(event) {
+	const clickTarget = event.target.closest('[data-city-del-button]')
+		? event.target.closest('[data-city-del-button]')
+		: event.target.closest('.header-favority-list-item-text');
+
+	if (!clickTarget) {
 		return;
 	}
 
-	const cityDel = button.dataset.cityDelButton;
+	if (clickTarget.tagName === 'BUTTON') {
+		deleteCity(clickTarget);
+		return;
+	}
+	DOM.cityInput.value = clickTarget.textContent;
+	searchCity();
+}
+
+export function deleteCity(element) {
+	const cityDel = element.dataset.cityDelButton;
 	const cities = JSON.parse(localStorage.getItem('cities'));
 
 	localStorage.setItem(
 		'cities',
 		JSON.stringify(cities.filter(city => city !== cityDel))
 	);
+
 	renderFavorites();
 }
 
 export async function searchCity() {
 	const inputValue = DOM.cityInput.value.trim();
+
 	if (!inputValue) {
 		return;
 	}
 
+	const capCity = capitalizeFirst(inputValue);
+
 	try {
-		const respons = await getWeather(inputValue);
+		const respons = await getWeather(capCity);
 		setDataWeather(respons.data);
+		return capCity;
 	} catch {
-		console.log('1');
+		getErrorMessage();
+		return false;
+	} finally {
+		DOM.cityInput.value = '';
 	}
 }
 
