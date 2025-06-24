@@ -12,6 +12,7 @@ export function renderFavorites() {
 
 	if (!cities || cities.length === 0) {
 		DOM.favoritiesList.innerHTML = '';
+		return;
 	}
 
 	DOM.favoritiesList.innerHTML = createMarkup(cities);
@@ -136,7 +137,7 @@ export async function searchCity() {
 
 	try {
 		const respons = await getWeather(capCity);
-		setDataWeather(respons.data);
+		setDataWeather(respons);
 		return capCity;
 	} catch {
 		getErrorMessage();
@@ -149,6 +150,9 @@ export async function searchCity() {
 function setDataWeather(data) {
 	renderTemp(data.current.temp_c);
 	renderLocation(data.location);
+	renderCloudy(data.current.cloud);
+	renderMaxTemp(data.forecast.forecastday[0].day.maxtemp_c);
+	renderMinTemp(data.forecast.forecastday[0].day.mintemp_c);
 }
 
 function renderTemp(temp) {
@@ -157,4 +161,42 @@ function renderTemp(temp) {
 
 function renderLocation({ name, country }) {
 	DOM.currentLocation.innerHTML = `${name}, ${country}`;
+}
+
+function renderCloudy(cloud) {
+	if (cloud >= 85) {
+		fillImage('./cloudy.png', 'cloudy');
+	} else if (cloud >= 30) {
+		fillImage('./cloudy-sun.png', 'cloudy-sun');
+	} else {
+		fillImage('./sun.png', 'sun');
+	}
+}
+
+function fillImage(src, alt) {
+	delImage();
+
+	const img = document.createElement('img');
+
+	img.src = src;
+	img.alt = alt;
+	img.classList.add('days-cloudy');
+
+	DOM.daysWrapper.prepend(img);
+}
+
+function delImage() {
+	const oldImg = document.querySelector('.days-cloudy');
+
+	if (oldImg) {
+		oldImg.remove();
+	}
+}
+
+function renderMaxTemp(temp) {
+	DOM.maxTempText.textContent = `${temp}°`;
+}
+
+function renderMinTemp(temp) {
+	DOM.minTempText.textContent = `${temp}°`;
 }

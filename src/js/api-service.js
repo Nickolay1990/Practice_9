@@ -10,5 +10,5 @@ export async function getWeather(city) {
 		}
 	);
 
-	return res;
+	return res.data;
 }

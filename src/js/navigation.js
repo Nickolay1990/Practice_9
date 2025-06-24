@@ -6,4 +6,7 @@ export default {
 	searchButton: document.querySelector('[data-search-button]'),
 	curentTemp: document.querySelector('.days-current-temp'),
 	currentLocation: document.querySelector('.days-city-title'),
+	daysWrapper: document.querySelector('.days-wrapper'),
+	maxTempText: document.querySelector('[data-max-temp]'),
+	minTempText: document.querySelector('[data-min-temp]'),
 };
