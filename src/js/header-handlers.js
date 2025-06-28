@@ -153,6 +153,19 @@ function setDataWeather(data) {
 	renderCloudy(data.current.cloud);
 	renderMaxTemp(data.forecast.forecastday[0].day.maxtemp_c);
 	renderMinTemp(data.forecast.forecastday[0].day.mintemp_c);
+	renderSunRise(data.forecast.forecastday[0].astro.sunrise);
+	renderSunSet(data.forecast.forecastday[0].astro.sunset);
+	DOM.sunBlock.style.display = 'flex';
+}
+
+export function setDate() {
+	const day = new Date();
+	setDay(day.getDate());
+	setWeekDay(day.getDay());
+	setMonth(day.getMonth());
+	setInterval(() => {
+		setTime(new Date());
+	}, 1000);
 }
 
 function renderTemp(temp) {
@@ -199,4 +212,59 @@ function renderMaxTemp(temp) {
 
 function renderMinTemp(temp) {
 	DOM.minTempText.textContent = `${temp}°`;
+}
+
+function setDay(date) {
+	const suffix =
+		date % 10 === 1 && date !== 11
+			? 'st'
+			: date % 10 === 2 && date !== 12
+			? 'nd'
+			: date % 10 === 3 && date !== 13
+			? 'rd'
+			: 'th';
+
+	DOM.currentDate.innerHTML = `${date}<sup>${suffix}</sup>`;
+}
+
+function setWeekDay(day) {
+	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+	DOM.currentDay.textContent = days[day];
+}
+
+function setMonth(month) {
+	const months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December',
+	];
+	DOM.currentMonth.textContent = months[month];
+}
+
+function setTime(date) {
+	const time = date.toLocaleTimeString('en-GB', {
+		hour: '2-digit',
+		minute: '2-digit',
+		second: '2-digit',
+		hour12: false,
+	});
+	DOM.currentTime.textContent = time;
+}
+
+function renderSunRise(time) {
+	DOM.sunRise.textContent = time.split(' ')[0];
+}
+
+function renderSunSet(time) {
+	DOM.sunSet.textContent = time.split(' ')[0];
 }

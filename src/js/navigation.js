@@ -9,4 +9,11 @@ export default {
 	daysWrapper: document.querySelector('.days-wrapper'),
 	maxTempText: document.querySelector('[data-max-temp]'),
 	minTempText: document.querySelector('[data-min-temp]'),
+	currentDate: document.querySelector('.date-day'),
+	currentDay: document.querySelector('.day-week'),
+	currentMonth: document.querySelector('.date-month'),
+	currentTime: document.querySelector('.date-time'),
+	sunRise: document.querySelector('.sunrise'),
+	sunSet: document.querySelector('.sunset'),
+	sunBlock: document.querySelector('.sun-rise-set'),
 };

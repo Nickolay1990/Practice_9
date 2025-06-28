@@ -7,3 +7,4 @@ DOM.favoritiesList.addEventListener('click', handlers.CheckEventClick);
 DOM.searchButton.addEventListener('click', handlers.searchCity);
 
 handlers.renderFavorites();
+handlers.setDate();

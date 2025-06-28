@@ -84,3 +84,94 @@
 .is-active {
 	background: #fff;
 }
+
+.date-wrapper {
+	padding: 32px 0;
+	background: rgba(16, 33, 54, 0.8);
+	border-radius: 34px;
+}
+
+.data-inner {
+}
+
+.current-day {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.date-day {
+	font-size: 45px;
+	letter-spacing: 0.04em;
+	color: #fff;
+	font-weight: 300;
+	flex-basis: 50%;
+	padding: 0 10px;
+	text-align: right;
+}
+
+.date-day sup {
+	font-size: 16px;
+	vertical-align: super;
+}
+
+.day-week {
+	font-size: 45px;
+	letter-spacing: 0.04em;
+	color: #fff;
+	font-weight: 300;
+	flex-basis: 50%;
+	padding: 0 10px;
+}
+
+.current-month-time {
+	display: flex;
+	margin-bottom: 16px;
+}
+
+.date-month {
+	letter-spacing: 0.04em;
+	text-align: right;
+	color: #fff;
+	padding: 0 10px;
+	border-right: 1px solid #fff;
+	flex-basis: 50%;
+}
+
+.date-time {
+	letter-spacing: 0.04em;
+	color: #fff;
+	padding: 0 10px;
+	flex-basis: 50%;
+}
+
+.sun-rise-set {
+	display: none;
+	justify-content: center;
+}
+
+.sun-rise-set-inner {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 0 10px;
+}
+
+.sunrise {
+	letter-spacing: 0.04em;
+	color: #fff;
+}
+
+.sun-rise-set-icon {
+	width: 20px;
+	height: 20px;
+	fill: #ff6b09;
+}
+
+.sunset {
+	letter-spacing: 0.04em;
+	color: #fff;
+}
+
+.border {
+	border-right: 1px solid #fff;
+}
