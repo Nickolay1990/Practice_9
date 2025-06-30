@@ -1,14 +1,27 @@
 .home {
-	background-image: url(/img/mobile-one.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height: 100vh;
 	padding-top: 164px;
+	padding-bottom: 32px;
+}
+
+.home-one {
+	background-image: url(/img/mobile-one.jpg);
 }
 @media screen and (min-resolution: 192dpi) {
-	.home {
+	.home-one {
 		background-image: url(/img/mobile-one@2x.jpg);
+	}
+}
+
+.home-five {
+	background-image: url(/img/mobile-five.jpg);
+	padding-top: 184px;
+}
+@media screen and (min-resolution: 192dpi) {
+	.home-five {
+		background-image: url(/img/mobile-five@2x.jpg);
 	}
 }
 
@@ -89,9 +102,7 @@
 	padding: 32px 0;
 	background: rgba(16, 33, 54, 0.8);
 	border-radius: 34px;
-}
-
-.data-inner {
+	margin-bottom: 44px;
 }
 
 .current-day {
@@ -174,4 +185,21 @@
 
 .border {
 	border-right: 1px solid #fff;
+}
+
+.cite-text {
+	font-style: italic;
+	letter-spacing: 0.04em;
+	text-align: right;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+.cite-author {
+	display: block;
+	width: 100%;
+	font-size: 18px;
+	letter-spacing: 0.04em;
+	text-align: right;
+	color: #fff;
 }

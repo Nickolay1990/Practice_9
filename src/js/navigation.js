@@ -16,4 +16,9 @@ export default {
 	sunRise: document.querySelector('.sunrise'),
 	sunSet: document.querySelector('.sunset'),
 	sunBlock: document.querySelector('.sun-rise-set'),
+	switchFiveDays: document.querySelector('[data-switch-five-days]'),
+	switchOneDay: document.querySelector('[data-switch-one-day]'),
+	homeSection: document.querySelector('.home'),
+	citeBlock: document.querySelector('[data-cite-block]'),
+	dateBlock: document.querySelector('.date-wrapper'),
 };

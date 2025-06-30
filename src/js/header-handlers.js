@@ -1,7 +1,6 @@
 import DOM from './navigation';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import icon from '../img/symbol-defs.svg';
 import { initCitySwiper } from './swiper';
 import { getWeather } from './api-service';
 
@@ -34,7 +33,7 @@ function createMarkup(cities) {
                         <span class="header-favority-list-item-text">${city}</span>
                         <button type="button" class="header-favority-list-item-button" data-city-del-button="${city}">
                             <svg>
-                                <use href="${icon}#close"></use>
+                                <use href="./symbol-defs.svg#close"></use>
                             </svg>
                         </button>
                      </li>`;
@@ -267,4 +266,22 @@ function renderSunRise(time) {
 
 function renderSunSet(time) {
 	DOM.sunSet.textContent = time.split(' ')[0];
+}
+
+export function switchFiveDays() {
+	DOM.daysWrapper.style.display = 'none';
+	DOM.homeSection.classList.add('home-five');
+	DOM.switchOneDay.classList.remove('is-active');
+	DOM.switchFiveDays.classList.add('is-active');
+	DOM.citeBlock.style.display = 'none';
+	DOM.dateBlock.style.display = 'none';
+}
+
+export function switchOneDay() {
+	DOM.daysWrapper.style.display = 'block';
+	DOM.homeSection.classList.remove('home-five');
+	DOM.switchOneDay.classList.add('is-active');
+	DOM.switchFiveDays.classList.remove('is-active');
+	DOM.citeBlock.style.display = 'block';
+	DOM.dateBlock.style.display = 'block';
 }
