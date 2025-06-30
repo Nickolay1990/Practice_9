@@ -8,7 +8,7 @@
 		<script type="module" crossorigin src="/Practice_9/index.js"></script>
 		<link rel="modulepreload" crossorigin href="/Practice_9/assets/vendor-Dsc43iqD.js">
 		<link rel="stylesheet" crossorigin href="/Practice_9/assets/vendor-BBa1bFoH.css">
-		<link rel="stylesheet" crossorigin href="/Practice_9/assets/index-DQKWBM8Q.css">
+		<link rel="stylesheet" crossorigin href="/Practice_9/assets/index-BQ1025Zy.css">
 	</head>
 	<body>
 		<header class="header" id="header">
@@ -26,7 +26,7 @@
 			data-search-button
 		>
 			<svg class="header-svg">
-				<use href="/Practice_9/assets/symbol-defs-8EHF_nBy.svg#location"></use>
+				<use href="./symbol-defs.svg#location"></use>
 			</svg>
 		</button>
 		<button
@@ -35,13 +35,13 @@
 			data-add-favorites
 		>
 			<svg class="header-svg">
-				<use href="/Practice_9/assets/symbol-defs-8EHF_nBy.svg#star"></use>
+				<use href="./symbol-defs.svg#star"></use>
 			</svg>
 		</button>
 		<div class="header-wrapper">
 			<button class="header-wrapper-nav-button left-arrow" data-swiper-left>
 				<svg>
-					<use href="/Practice_9/assets/symbol-defs-8EHF_nBy.svg#arrow"></use>
+					<use href="./symbol-defs.svg#arrow"></use>
 				</svg>
 			</button>
 			<div class="swiper" data-swiper-cities>
@@ -52,7 +52,7 @@
 			</div>
 			<button class="header-wrapper-nav-button" data-swiper-right>
 				<svg>
-					<use href="/Practice_9/assets/symbol-defs-8EHF_nBy.svg#arrow"></use>
+					<use href="./symbol-defs.svg#arrow"></use>
 				</svg>
 			</button>
 		</div>
@@ -61,7 +61,7 @@
 
 
 		<main>
-			<section class="home">
+			<section class="home home-one">
 	<div class="container">
 		<div class="days-wrapper">
 			<p class="days-city-title"></p>
@@ -78,11 +78,11 @@
 			</div>
 		</div>
 		<div class="days-button-wrapper">
-			<button class="days-button is-active">today</button>
-			<button class="days-button">5 days</button>
+			<button class="days-button is-active" data-switch-one-day>today</button>
+			<button class="days-button" data-switch-five-days>5 days</button>
 		</div>
 		<div class="date-wrapper">
-			<div class="data-inner">
+			<div>
 				<div class="current-day">
 					<p class="date-day"></p>
 					<p class="day-week"></p>
@@ -94,19 +94,26 @@
 				<div class="sun-rise-set">
 					<div class="sun-rise-set-inner border">
 						<svg class="sun-rise-set-icon">
-							<use href="/Practice_9/assets/symbol-defs-8EHF_nBy.svg#sunrise"></use>
+							<use href="/img/symbol-defs.svg#sunrise"></use>
 						</svg>
 						<p class="sunrise"></p>
 					</div>
 					<div class="sun-rise-set-inner">
 						<svg class="sun-rise-set-icon">
-							<use href="/Practice_9/assets/symbol-defs-8EHF_nBy.svg#sunset"></use>
+							<use href="/img/symbol-defs.svg#sunset"></use>
 						</svg>
 						<p class="sunset"></p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<blockquote cite="" data-cite-block>
+			<p class="cite-text">
+				Who cares about the clouds when we're together? Just sing a song and
+				bring the sunny weather.
+			</p>
+			<cite class="cite-author">Dale Evans</cite>
+		</blockquote>
 	</div>
 </section>
 
