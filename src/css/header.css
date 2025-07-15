@@ -114,6 +114,7 @@ body .iziToast-body {
 	font-size: 12px;
 	text-decoration: underline;
 	color: #fff;
+	cursor: pointer;
 }
 
 .header-favority-list-item-button {

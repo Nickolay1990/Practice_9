@@ -6,6 +6,7 @@ export default {
 	searchButton: document.querySelector('[data-search-button]'),
 	curentTemp: document.querySelector('.days-current-temp'),
 	currentLocation: document.querySelector('.days-city-title'),
+	currentLocationFive: document.querySelector('.five-days-city-title'),
 	daysWrapper: document.querySelector('.days-wrapper'),
 	maxTempText: document.querySelector('[data-max-temp]'),
 	minTempText: document.querySelector('[data-min-temp]'),
@@ -21,4 +22,8 @@ export default {
 	homeSection: document.querySelector('.home'),
 	citeBlock: document.querySelector('[data-cite-block]'),
 	dateBlock: document.querySelector('.date-wrapper'),
+	fiveDayContainer: document.querySelector('.five-day-container'),
+	fiveDaysCityWeekday: document.querySelectorAll(
+		'.five-days-city-list-weekday'
+	),
 };

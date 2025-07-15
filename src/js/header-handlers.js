@@ -4,6 +4,9 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { initCitySwiper } from './swiper';
 import { getWeather } from './api-service';
 
+export let DAYS_COUNT = 1;
+const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 export function renderFavorites() {
 	const cities = JSON.parse(localStorage.getItem('cities'));
 
@@ -135,8 +138,11 @@ export async function searchCity() {
 	const capCity = capitalizeFirst(inputValue);
 
 	try {
-		const respons = await getWeather(capCity);
-		setDataWeather(respons);
+		const response = await getWeather(capCity, DAYS_COUNT);
+		console.log(response);
+
+		setDataWeather(response);
+
 		return capCity;
 	} catch {
 		getErrorMessage();
@@ -173,6 +179,7 @@ function renderTemp(temp) {
 
 function renderLocation({ name, country }) {
 	DOM.currentLocation.innerHTML = `${name}, ${country}`;
+	DOM.currentLocationFive.innerHTML = `${name}, ${country}`;
 }
 
 function renderCloudy(cloud) {
@@ -227,9 +234,10 @@ function setDay(date) {
 }
 
 function setWeekDay(day) {
-	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-	DOM.currentDay.textContent = days[day];
+	DOM.currentDay.textContent = WEEKDAYS[day];
+	DOM.fiveDaysCityWeekday.forEach((weekday, index) => {
+		weekday.textContent = WEEKDAYS[day + index];
+	});
 }
 
 function setMonth(month) {
@@ -275,6 +283,9 @@ export function switchFiveDays() {
 	DOM.switchFiveDays.classList.add('is-active');
 	DOM.citeBlock.style.display = 'none';
 	DOM.dateBlock.style.display = 'none';
+	DOM.fiveDayContainer.style.display = 'block';
+
+	DAYS_COUNT = 3;
 }
 
 export function switchOneDay() {
@@ -284,4 +295,6 @@ export function switchOneDay() {
 	DOM.switchFiveDays.classList.remove('is-active');
 	DOM.citeBlock.style.display = 'block';
 	DOM.dateBlock.style.display = 'block';
+	DOM.fiveDayContainer.style.display = 'none';
+	DAYS_COUNT = 1;
 }
