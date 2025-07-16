@@ -1,0 +1,27 @@
+.three-day-container {
+	padding: 32px 30px 20px;
+	border-radius: 34px;
+	box-shadow: 0 5px 33px 0 rgba(16, 33, 54, 0.6);
+	background: rgba(16, 33, 54, 0.8);
+	display: none;
+}
+
+.three-days-city-title {
+	font-weight: 700;
+	font-size: 18px;
+	text-align: center;
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+.three-days-city-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.three-days-city-list-weekday {
+	letter-spacing: 0.04em;
+	text-align: center;
+	color: #fff;
+	opacity: 0.55;
+}

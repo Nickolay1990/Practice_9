@@ -1,5 +1,6 @@
 @import url('./header.css');
-@import url('./home.css');
+@import url('./one-day.css');
+@import url('./three-day.css');
 
 @font-face {
 	font-family: 'Lato';
@@ -90,4 +91,31 @@ select {
 	clip: rect(0 0 0 0);
 	white-space: nowrap;
 	border: 0;
+}
+
+.home {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 164px;
+	padding-bottom: 32px;
+}
+
+.home-one {
+	background-image: url(/img/mobile-one.jpg);
+}
+@media screen and (min-resolution: 192dpi) {
+	.home-one {
+		background-image: url(/img/mobile-one@2x.jpg);
+	}
+}
+
+.home-three {
+	background-image: url(/img/mobile-five.jpg);
+	padding-top: 184px;
+}
+@media screen and (min-resolution: 192dpi) {
+	.home-three {
+		background-image: url(/img/mobile-five@2x.jpg);
+	}
 }
