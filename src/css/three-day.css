@@ -24,4 +24,13 @@
 	text-align: center;
 	color: #fff;
 	opacity: 0.55;
+	margin-bottom: 8px;
+}
+
+.three-days-city-list-date {
+	font-size: 16px;
+	letter-spacing: 0.04em;
+	text-align: center;
+	color: #fff;
+	margin-bottom: 4px;
 }

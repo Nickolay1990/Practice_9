@@ -1,7 +1,10 @@
 import DOM from './navigation';
-import { searchCity } from './render-weather-utils';
 import { setCityStorage } from './local-storage-utils';
 import { deleteCity } from './local-storage-utils';
+import { capitalizeFirst } from './render-weather-utils';
+import { getWeather } from './api-service';
+import { setDataWeather } from './render-weather-utils';
+import { getErrorMessage } from './toaster-messages-utils';
 
 export async function handleFavore() {
 	const city = await searchCity();
@@ -45,4 +48,27 @@ export function switchOneDay() {
 	DOM.citeBlock.style.display = 'block';
 	DOM.dateBlock.style.display = 'block';
 	DOM.threeDayContainer.style.display = 'none';
+}
+
+export async function searchCity() {
+	const inputValue = DOM.cityInput.value.trim();
+
+	if (!inputValue) {
+		return;
+	}
+
+	const capCity = capitalizeFirst(inputValue);
+
+	try {
+		const response = await getWeather(capCity);
+
+		setDataWeather(response);
+
+		return capCity;
+	} catch {
+		getErrorMessage();
+		return false;
+	} finally {
+		DOM.cityInput.value = '';
+	}
 }

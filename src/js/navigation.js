@@ -26,4 +26,8 @@ export default {
 	threeDaysCityWeekday: document.querySelectorAll(
 		'.three-days-city-list-weekday'
 	),
+	threeDaysDate: document.querySelectorAll('.three-days-city-list-date'),
+	threeDaysElemetsForImage: document.querySelectorAll(
+		'.three-days-city-list-hight-item'
+	),
 };

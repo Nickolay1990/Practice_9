@@ -1,42 +1,31 @@
 import DOM from './navigation';
-import { getWeather } from './api-service';
-import { getErrorMessage } from './toaster-messages-utils';
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTHS = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];
 
-export async function searchCity() {
-	const inputValue = DOM.cityInput.value.trim();
-
-	if (!inputValue) {
-		return;
-	}
-
-	const capCity = capitalizeFirst(inputValue);
-	console.log('1');
-
-	try {
-		const response = await getWeather(capCity);
-		console.log(response);
-
-		setDataWeather(response);
-
-		return capCity;
-	} catch {
-		getErrorMessage();
-		return false;
-	} finally {
-		DOM.cityInput.value = '';
-	}
-}
-
-function capitalizeFirst(word) {
+export function capitalizeFirst(word) {
 	return `${word[0].toUpperCase()}${word.slice(1).toLowerCase()}`;
 }
 
-function setDataWeather(data) {
+export function setDataWeather(data) {
+	console.log('data>>>>>', data);
+
 	renderTemp(data.current.temp_c);
 	renderLocation(data.location);
-	renderCloudy(data.current.cloud);
+	renderCloudy(data);
 	renderMaxTemp(data.forecast.forecastday[0].day.maxtemp_c);
 	renderMinTemp(data.forecast.forecastday[0].day.mintemp_c);
 	renderSunRise(data.forecast.forecastday[0].astro.sunrise);
@@ -53,14 +42,25 @@ function renderLocation({ name, country }) {
 	DOM.threeCurrentLocation.innerHTML = `${name}, ${country}`;
 }
 
-function renderCloudy(cloud) {
-	if (cloud >= 85) {
-		fillImage('./cloudy.png', 'cloudy');
-	} else if (cloud >= 30) {
-		fillImage('./cloudy-sun.png', 'cloudy-sun');
-	} else {
-		fillImage('./sun.png', 'sun');
-	}
+function renderCloudy(data) {
+	delImage();
+
+	const img = document.createElement('img');
+
+	img.src = data.current.condition.icon;
+	img.alt = 'conditions';
+	img.classList.add('days-cloudy');
+
+	DOM.daysWrapper.prepend(img);
+	DOM.threeDaysElemetsForImage.forEach((item, index) => {
+		const img = document.createElement('img');
+
+		img.src = data.forecast.forecastday[index].day.condition.icon;
+		img.classList.add('days-cloudy');
+		img.alt = 'conditions';
+
+		item.append(img);
+	});
 }
 
 function renderMaxTemp(temp) {
@@ -79,29 +79,17 @@ function renderSunSet(time) {
 	DOM.sunSet.textContent = time.split(' ')[0];
 }
 
-function fillImage(src, alt) {
-	delImage();
-
-	const img = document.createElement('img');
-
-	img.src = src;
-	img.alt = alt;
-	img.classList.add('days-cloudy');
-
-	DOM.daysWrapper.prepend(img);
-}
-
 function delImage() {
-	const oldImg = document.querySelector('.days-cloudy');
+	const oldImages = document.querySelectorAll('.days-cloudy');
 
-	if (oldImg) {
-		oldImg.remove();
+	if (oldImages.length > 0) {
+		oldImages.forEach(img => img.remove());
 	}
 }
 
 export function setDate() {
 	const day = new Date();
-	setDay(day.getDate());
+	setDay(day);
 	setWeekDay(day.getDay());
 	setMonth(day.getMonth());
 	setInterval(() => {
@@ -119,7 +107,16 @@ function setDay(date) {
 			? 'rd'
 			: 'th';
 
-	DOM.currentDate.innerHTML = `${date}<sup>${suffix}</sup>`;
+	DOM.currentDate.innerHTML = `${date.getDate()}<sup>${suffix}</sup>`;
+	DOM.threeDaysDate.forEach((day, index) => {
+		const nextDays = new Date(date);
+		nextDays.setDate(date.getDate() + index);
+		console.log();
+
+		day.textContent = `${nextDays.getDate()} ${MONTHS[
+			nextDays.getMonth()
+		].slice(0, 3)}`;
+	});
 }
 
 function setWeekDay(day) {
@@ -127,25 +124,10 @@ function setWeekDay(day) {
 	DOM.threeDaysCityWeekday.forEach((weekday, index) => {
 		weekday.textContent = WEEKDAYS[day + index];
 	});
-	console.log(DOM.threeDaysCityWeekday);
 }
 
 function setMonth(month) {
-	const months = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December',
-	];
-	DOM.currentMonth.textContent = months[month];
+	DOM.currentMonth.textContent = MONTHS[month];
 }
 
 function setTime(date) {
