@@ -111,7 +111,6 @@ function setDay(date) {
 	DOM.threeDaysDate.forEach((day, index) => {
 		const nextDays = new Date(date);
 		nextDays.setDate(date.getDate() + index);
-		console.log();
 
 		day.textContent = `${nextDays.getDate()} ${MONTHS[
 			nextDays.getMonth()
@@ -122,7 +121,13 @@ function setDay(date) {
 function setWeekDay(day) {
 	DOM.currentDay.textContent = WEEKDAYS[day];
 	DOM.threeDaysCityWeekday.forEach((weekday, index) => {
-		weekday.textContent = WEEKDAYS[day + index];
+		const futureDay = day + index;
+		if (futureDay === 7) {
+			weekday.textContent = WEEKDAYS[0];
+			return;
+		}
+
+		weekday.textContent = WEEKDAYS[futureDay];
 	});
 }
 

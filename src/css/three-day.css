@@ -34,3 +34,22 @@
 	color: #fff;
 	margin-bottom: 4px;
 }
+
+.three-days-city-list-min-max-wrapper {
+	display: flex;
+}
+
+.three-days-city-list-min-temp {
+	padding-right: 5px;
+	border-right: 1px solid #27384a;
+}
+
+.three-days-city-list-max-temp {
+	padding-left: 5px;
+}
+
+.three-days-city-list-min-temp-title,
+.three-days-city-list-max-temp-title {
+	text-align: center;
+	color: #767d85;
+}
