@@ -30,4 +30,16 @@ export default {
 	threeDaysElemetsForImage: document.querySelectorAll(
 		'.three-days-city-list-hight-item'
 	),
+	threeDaysElementsForMinTemp: document.querySelectorAll(
+		'.three-days-city-list-min-temp-deg'
+	),
+	threeDaysElementsForMaxTemp: document.querySelectorAll(
+		'.three-days-city-list-max-temp-deg'
+	),
+	moreInfoButtons: document.querySelectorAll(
+		'.three-days-city-list-more-button'
+	),
+	moreInfoListItems: document.querySelectorAll(
+		'.three-days-more-info-list-item'
+	),
 };

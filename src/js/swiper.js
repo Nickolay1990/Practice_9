@@ -15,3 +15,12 @@ export function initCitySwiper() {
 		},
 	});
 }
+
+let moreInfoSwiper;
+
+export function initMoreInfoSwiper() {
+	moreInfoSwiper = new Swiper('[data-swiper-more-info]', {
+		spaceBetween: 30,
+		slidesPerView: 2,
+	});
+}

@@ -5,6 +5,8 @@ import { capitalizeFirst } from './render-weather-utils';
 import { getWeather } from './api-service';
 import { setDataWeather } from './render-weather-utils';
 import { getErrorMessage } from './toaster-messages-utils';
+import { renderMoreInfo } from './render-weather-utils';
+import { RESPONSE_WEATHER } from './api-service';
 
 export async function handleFavore() {
 	const city = await searchCity();
@@ -71,4 +73,8 @@ export async function searchCity() {
 	} finally {
 		DOM.cityInput.value = '';
 	}
+}
+
+export function showMoreInfo() {
+	renderMoreInfo(RESPONSE_WEATHER);
 }

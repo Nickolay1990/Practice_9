@@ -1,5 +1,5 @@
 import DOM from './navigation';
-import { initCitySwiper } from './swiper';
+import { initCitySwiper, initMoreInfoSwiper } from './swiper';
 
 export function renderFavorites() {
 	const cities = JSON.parse(localStorage.getItem('cities'));

@@ -26,8 +26,8 @@ export function setDataWeather(data) {
 	renderTemp(data.current.temp_c);
 	renderLocation(data.location);
 	renderCloudy(data);
-	renderMaxTemp(data.forecast.forecastday[0].day.maxtemp_c);
-	renderMinTemp(data.forecast.forecastday[0].day.mintemp_c);
+	renderMaxTemp(data.forecast.forecastday);
+	renderMinTemp(data.forecast.forecastday);
 	renderSunRise(data.forecast.forecastday[0].astro.sunrise);
 	renderSunSet(data.forecast.forecastday[0].astro.sunset);
 	DOM.sunBlock.style.display = 'flex';
@@ -64,11 +64,17 @@ function renderCloudy(data) {
 }
 
 function renderMaxTemp(temp) {
-	DOM.maxTempText.textContent = `${temp}°`;
+	DOM.maxTempText.textContent = `${temp[0].day.maxtemp_c}°`;
+	DOM.threeDaysElementsForMaxTemp.forEach((element, index) => {
+		element.textContent = `${temp[index].day.maxtemp_c}°`;
+	});
 }
 
 function renderMinTemp(temp) {
-	DOM.minTempText.textContent = `${temp}°`;
+	DOM.minTempText.textContent = `${temp[0].day.mintemp_c}°`;
+	DOM.threeDaysElementsForMinTemp.forEach((element, index) => {
+		element.textContent = `${temp[index].day.mintemp_c}°`;
+	});
 }
 
 function renderSunRise(time) {
@@ -122,8 +128,9 @@ function setWeekDay(day) {
 	DOM.currentDay.textContent = WEEKDAYS[day];
 	DOM.threeDaysCityWeekday.forEach((weekday, index) => {
 		const futureDay = day + index;
-		if (futureDay === 7) {
-			weekday.textContent = WEEKDAYS[0];
+
+		if (futureDay >= 7) {
+			weekday.textContent = WEEKDAYS[futureDay === 7 ? 0 : 1];
 			return;
 		}
 
@@ -143,4 +150,19 @@ function setTime(date) {
 		hour12: false,
 	});
 	DOM.currentTime.textContent = time;
+}
+
+export function renderMoreInfo(data) {
+	renderMoreCloudy(data.forecast.forecastday);
+}
+
+function renderMoreCloudy(data) {
+	console.log(data);
+	DOM.moreInfoListItems.forEach((item, index) => {
+		const img = document.createElement('img');
+		img.src = data[index].hour[0].condition.icon;
+		img.alt = 'condition';
+		img.classList.add('days-cloudy');
+		item.append(img);
+	});
 }

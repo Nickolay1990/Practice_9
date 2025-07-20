@@ -37,6 +37,7 @@
 
 .three-days-city-list-min-max-wrapper {
 	display: flex;
+	margin-bottom: 4px;
 }
 
 .three-days-city-list-min-temp {
@@ -52,4 +53,46 @@
 .three-days-city-list-max-temp-title {
 	text-align: center;
 	color: #767d85;
+	line-height: 1.5;
+}
+
+.three-days-city-list-min-temp-deg,
+.three-days-city-list-max-temp-deg {
+	font-size: 11px;
+	text-align: center;
+	color: #ff6b09;
+	line-height: 1.5;
+}
+
+.three-days-city-list-more-button {
+	border: none;
+	background-color: transparent;
+	font-weight: 700;
+	font-size: 12px;
+	text-decoration: underline;
+	text-decoration-skip-ink: none;
+	text-align: center;
+	color: #767d85;
+	margin: 0 auto;
+}
+
+.three-days-more-info-list {
+	display: flex;
+}
+
+.three-days-more-info-wrapper {
+	margin-top: 20px;
+}
+
+.three-days-more-info-list-item {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 25px;
+	padding: 20px 16px;
+}
+
+.three-days-more-info-list-item-time {
+	text-align: center;
+	color: #fff;
+	opacity: 0.54;
+	margin-bottom: 8px;
 }
