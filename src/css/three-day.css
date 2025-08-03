@@ -1,5 +1,5 @@
 .three-day-container {
-	padding: 32px 30px 20px;
+	padding: 32px 5px 20px;
 	border-radius: 34px;
 	box-shadow: 0 5px 33px 0 rgba(16, 33, 54, 0.6);
 	background: rgba(16, 33, 54, 0.8);
@@ -17,6 +17,7 @@
 .three-days-city-list {
 	display: flex;
 	justify-content: space-between;
+	padding: 0 25px;
 }
 
 .three-days-city-list-weekday {
@@ -95,4 +96,37 @@
 	color: #fff;
 	opacity: 0.54;
 	margin-bottom: 8px;
+}
+
+.three-days-more-info-list-item-wrapper {
+	margin-bottom: 8px;
+}
+
+.three-days-more-info-list-item-current-temp {
+	color: #ff6b09;
+	text-align: center;
+	font-weight: 700;
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+
+.three-days-more-info-list-item-esential-block-icons {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+	fill: rgba(255, 255, 255, 0.54);
+}
+
+.three-days-more-info-list-item-esential-block-info {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	margin-bottom: 4px;
+}
+
+.three-days-more-info-list-item-esential-block-pressure-data,
+.three-days-more-info-list-item-esential-block-humidity-data,
+.three-days-more-info-list-item-esential-block-wind-data {
+	color: #fff;
+	opacity: 0.54;
 }

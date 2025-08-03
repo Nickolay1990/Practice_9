@@ -154,15 +154,60 @@ function setTime(date) {
 
 export function renderMoreInfo(data) {
 	renderMoreCloudy(data.forecast.forecastday);
+	renderMoreCurrentTemp(data.forecast.forecastday);
+	renderPressure(data.forecast.forecastday);
+	renderHumidity(data.forecast.forecastday);
+	renderWind(data.forecast.forecastday);
 }
 
 function renderMoreCloudy(data) {
-	console.log(data);
+	delMoreCloudyImg();
 	DOM.moreInfoListItems.forEach((item, index) => {
 		const img = document.createElement('img');
 		img.src = data[index].hour[0].condition.icon;
 		img.alt = 'condition';
 		img.classList.add('days-cloudy');
+		img.dataset.days = 'three';
 		item.append(img);
 	});
+}
+
+function renderMoreCurrentTemp(data) {
+	DOM.moreInfoCurrentTemp.forEach((item, index) => {
+		item.textContent = `${data[index].day.avgtemp_c}°`;
+	});
+}
+
+function renderPressure(data) {
+	const hour = new Date().getHours();
+	DOM.moreInfoPressure.forEach((item, index) => {
+		item.textContent = `${Math.floor(
+			data[index].hour[hour].pressure_in * 25.5
+		)} mm`;
+	});
+}
+
+function renderHumidity(data) {
+	DOM.moreInfoHumidity.forEach((item, index) => {
+		item.textContent = `${data[index].day.avghumidity}%`;
+	});
+}
+
+function renderWind(data) {
+	console.log(data);
+	DOM.moreInfoWind.forEach((item, index) => {
+		item.textContent = `${(
+			(data[index].day.maxwind_kph * 1000) /
+			60 /
+			60
+		).toFixed(1)} m/s`;
+	});
+}
+
+function delMoreCloudyImg() {
+	const images = document.querySelectorAll('[data-days=three]');
+	if (images.length === 0) {
+		return;
+	}
+	images.forEach(item => item.remove());
 }

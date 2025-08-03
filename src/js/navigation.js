@@ -40,6 +40,18 @@ export default {
 		'.three-days-city-list-more-button'
 	),
 	moreInfoListItems: document.querySelectorAll(
-		'.three-days-more-info-list-item'
+		'.three-days-more-info-list-item-wrapper'
+	),
+	moreInfoCurrentTemp: document.querySelectorAll(
+		'.three-days-more-info-list-item-current-temp'
+	),
+	moreInfoPressure: document.querySelectorAll(
+		'.three-days-more-info-list-item-esential-block-pressure-data'
+	),
+	moreInfoHumidity: document.querySelectorAll(
+		'.three-days-more-info-list-item-esential-block-humidity-data'
+	),
+	moreInfoWind: document.querySelectorAll(
+		'.three-days-more-info-list-item-esential-block-wind-data'
 	),
 };
