@@ -194,7 +194,6 @@ function renderHumidity(data) {
 }
 
 function renderWind(data) {
-	console.log(data);
 	DOM.moreInfoWind.forEach((item, index) => {
 		item.textContent = `${(
 			(data[index].day.maxwind_kph * 1000) /

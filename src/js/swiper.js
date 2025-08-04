@@ -1,11 +1,9 @@
 import Swiper from 'swiper';
 import 'swiper/css';
-import { Navigation } from 'swiper/modules';
-
-let citySwiper;
+import { Navigation, Scrollbar } from 'swiper/modules';
 
 export function initCitySwiper() {
-	citySwiper = new Swiper('[data-swiper-cities]', {
+	const citySwiper = new Swiper('[data-swiper-cities]', {
 		modules: [Navigation],
 		spaceBetween: 10,
 		slidesPerView: 'auto',
@@ -16,11 +14,14 @@ export function initCitySwiper() {
 	});
 }
 
-let moreInfoSwiper;
-
 export function initMoreInfoSwiper() {
-	moreInfoSwiper = new Swiper('[data-swiper-more-info]', {
+	const moreInfoSwiper = new Swiper('[data-swiper-more-info]', {
+		modules: [Scrollbar],
 		spaceBetween: 30,
 		slidesPerView: 2,
+		scrollbar: {
+			el: '.swiper-scrollbar',
+			draggable: true, // если нужно перетаскивать
+		},
 	});
 }
