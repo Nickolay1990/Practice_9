@@ -3,7 +3,6 @@ import DOM from './js/navigation';
 import * as handlers from './js/handlers';
 import { renderFavorites } from './js/render-favorities-utils';
 import { setDate } from './js/render-weather-utils';
-import { initMoreInfoSwiper } from './js/swiper';
 
 DOM.favoritesButton.addEventListener('click', handlers.handleFavore);
 DOM.favoritiesList.addEventListener('click', handlers.CheckEventClick);
@@ -18,4 +17,3 @@ renderFavorites();
 setDate();
 
 // for more
-initMoreInfoSwiper();

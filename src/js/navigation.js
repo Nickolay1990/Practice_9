@@ -54,4 +54,5 @@ export default {
 	moreInfoWind: document.querySelectorAll(
 		'.three-days-more-info-list-item-esential-block-wind-data'
 	),
+	moreInfoBlock: document.querySelector('.three-days-more-info-wrapper'),
 };

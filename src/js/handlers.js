@@ -7,6 +7,9 @@ import { setDataWeather } from './render-weather-utils';
 import { getErrorMessage } from './toaster-messages-utils';
 import { renderMoreInfo } from './render-weather-utils';
 import { RESPONSE_WEATHER } from './api-service';
+import { initMoreInfoSwiper } from './swiper.js';
+
+let IS_OPEN_MORE_INFO = false;
 
 export async function handleFavore() {
 	const city = await searchCity();
@@ -66,6 +69,10 @@ export async function searchCity() {
 
 		setDataWeather(response);
 
+		if (IS_OPEN_MORE_INFO) {
+			showMoreInfo(RESPONSE_WEATHER);
+		}
+
 		return capCity;
 	} catch {
 		getErrorMessage();
@@ -76,5 +83,8 @@ export async function searchCity() {
 }
 
 export function showMoreInfo() {
+	IS_OPEN_MORE_INFO = true;
 	renderMoreInfo(RESPONSE_WEATHER);
+	initMoreInfoSwiper();
+	DOM.moreInfoBlock.style.display = 'block';
 }

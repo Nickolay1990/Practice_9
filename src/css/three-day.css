@@ -4,6 +4,7 @@
 	box-shadow: 0 5px 33px 0 rgba(16, 33, 54, 0.6);
 	background: rgba(16, 33, 54, 0.8);
 	display: none;
+	margin-bottom: 20px;
 }
 
 .three-days-city-title {
@@ -82,8 +83,9 @@
 	margin-bottom: 20px;
 }
 
-.three-days-more-info-wrapper {
+#three-day-container .three-days-more-info-wrapper {
 	margin-top: 20px;
+	display: none;
 }
 
 .three-days-more-info-list-item {
@@ -142,4 +144,33 @@
 .swiper-scrollbar-drag {
 	background: #ff6b09;
 	height: 2px;
+}
+
+.chart-button-icon {
+	fill: transparent;
+	stroke: #fff;
+}
+
+.chart-button {
+	display: flex;
+	gap: 10px;
+	margin: 0 auto;
+	background-color: transparent;
+	border: none;
+	align-items: center;
+}
+
+.chart-button-text {
+	text-decoration: underline;
+	color: #ff6b09;
+}
+
+.chart-button-icon-span {
+	background-color: rgba(255, 255, 255, 0.2);
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
