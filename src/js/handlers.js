@@ -1,12 +1,16 @@
 import DOM from './navigation';
-import { setCityStorage } from './local-storage-utils';
-import { deleteCity } from './local-storage-utils';
-import { capitalizeFirst } from './render-weather-utils';
-import { getWeather } from './api-service';
-import { setDataWeather } from './render-weather-utils';
-import { getErrorMessage } from './toaster-messages-utils';
-import { renderMoreInfo } from './render-weather-utils';
-import { RESPONSE_WEATHER } from './api-service';
+import {
+	setCityStorage,
+	deleteCity,
+	setStorageLastCity,
+} from './local-storage-api/local-storage-utils.js';
+import { capitalizeFirst } from './render-weather/render-weather-utils.js';
+import { getWeather, RESPONSE_WEATHER } from './api-service.js';
+import {
+	setDataWeather,
+	renderMoreInfo,
+} from './render-weather/render-weather.js';
+import { getErrorMessage } from './toaster-messages-utils.js';
 import { initMoreInfoSwiper } from './swiper.js';
 
 let IS_OPEN_MORE_INFO = false;
@@ -35,26 +39,6 @@ export function CheckEventClick(event) {
 	searchCity();
 }
 
-export function switchThreeDays() {
-	DOM.daysWrapper.style.display = 'none';
-	DOM.homeSection.classList.add('home-three');
-	DOM.switchOneDay.classList.remove('is-active');
-	DOM.switchThreeDays.classList.add('is-active');
-	DOM.citeBlock.style.display = 'none';
-	DOM.dateBlock.style.display = 'none';
-	DOM.threeDayContainer.style.display = 'block';
-}
-
-export function switchOneDay() {
-	DOM.daysWrapper.style.display = 'block';
-	DOM.homeSection.classList.remove('home-three');
-	DOM.switchOneDay.classList.add('is-active');
-	DOM.switchThreeDays.classList.remove('is-active');
-	DOM.citeBlock.style.display = 'block';
-	DOM.dateBlock.style.display = 'block';
-	DOM.threeDayContainer.style.display = 'none';
-}
-
 export async function searchCity() {
 	const inputValue = DOM.cityInput.value.trim();
 
@@ -68,6 +52,7 @@ export async function searchCity() {
 		const response = await getWeather(capCity);
 
 		setDataWeather(response);
+		setStorageLastCity(capCity);
 
 		if (IS_OPEN_MORE_INFO) {
 			showMoreInfo(RESPONSE_WEATHER);
@@ -80,6 +65,28 @@ export async function searchCity() {
 	} finally {
 		DOM.cityInput.value = '';
 	}
+}
+
+export function switchThreeDays() {
+	DOM.daysWrapper.style.display = 'none';
+	DOM.homeSection.classList.add('home-three');
+	DOM.switchOneDay.classList.remove('is-active');
+	DOM.switchThreeDays.classList.add('is-active');
+	DOM.citeBlock.style.display = 'none';
+	DOM.dateBlock.style.display = 'none';
+	DOM.threeDayContainer.style.display = 'block';
+	DOM.chartButton.style.display = 'flex';
+}
+
+export function switchOneDay() {
+	DOM.daysWrapper.style.display = 'block';
+	DOM.homeSection.classList.remove('home-three');
+	DOM.switchOneDay.classList.add('is-active');
+	DOM.switchThreeDays.classList.remove('is-active');
+	DOM.citeBlock.style.display = 'block';
+	DOM.dateBlock.style.display = 'block';
+	DOM.threeDayContainer.style.display = 'none';
+	DOM.chartButton.style.display = 'none';
 }
 
 export function showMoreInfo() {

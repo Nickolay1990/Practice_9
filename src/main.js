@@ -1,8 +1,9 @@
 import 'modern-normalize';
 import DOM from './js/navigation';
 import * as handlers from './js/handlers';
-import { renderFavorites } from './js/render-favorities-utils';
-import { setDate } from './js/render-weather-utils';
+import { setDate } from './js/set-date/set-date.js';
+import { renderFavorites } from './js/render-favorities/render-favorities.js';
+import { renderLoadPage } from './js/render-weather/render-weather.js';
 
 DOM.favoritesButton.addEventListener('click', handlers.handleFavore);
 DOM.favoritiesList.addEventListener('click', handlers.CheckEventClick);
@@ -15,5 +16,4 @@ DOM.moreInfoButtons.forEach(button =>
 
 renderFavorites();
 setDate();
-
-// for more
+renderLoadPage();

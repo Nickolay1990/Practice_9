@@ -10,6 +10,8 @@ export async function getWeather(city) {
 			params: { key: key, q: city },
 		}
 	);
+
 	RESPONSE_WEATHER = res.data;
+
 	return res.data;
 }

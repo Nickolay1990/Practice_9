@@ -55,4 +55,5 @@ export default {
 		'.three-days-more-info-list-item-esential-block-wind-data'
 	),
 	moreInfoBlock: document.querySelector('.three-days-more-info-wrapper'),
+	chartButton: document.querySelector('.chart-button'),
 };

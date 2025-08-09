@@ -21,7 +21,7 @@ export function initMoreInfoSwiper() {
 		slidesPerView: 2,
 		scrollbar: {
 			el: '.swiper-scrollbar',
-			draggable: true, // если нужно перетаскивать
+			draggable: true,
 		},
 	});
 }

@@ -1,5 +1,5 @@
-import { getSuccssesMessage } from './toaster-messages-utils';
-import { renderFavorites } from './render-favorities-utils';
+import { getSuccssesMessage } from '../toaster-messages-utils.js';
+import { renderFavorites } from '../render-favorities/render-favorities.js';
 
 export function setCityStorage(city) {
 	const storedCities = JSON.parse(localStorage.getItem('cities')) || [];
@@ -25,4 +25,12 @@ export function deleteCity(element) {
 	);
 
 	renderFavorites();
+}
+
+export function setStorageLastCity(city) {
+	localStorage.setItem('lastCity', JSON.stringify(city));
+}
+
+export function getStorageLastCity() {
+	return JSON.parse(localStorage.getItem('lastCity'));
 }
