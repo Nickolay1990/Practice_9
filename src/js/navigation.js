@@ -39,6 +39,9 @@ export default {
 	moreInfoButtons: document.querySelectorAll(
 		'.three-days-city-list-more-button'
 	),
+	hideInfoButtons: document.querySelectorAll(
+		'.three-days-city-list-hide-button'
+	),
 	moreInfoListItems: document.querySelectorAll(
 		'.three-days-more-info-list-item-wrapper'
 	),
@@ -56,4 +59,6 @@ export default {
 	),
 	moreInfoBlock: document.querySelector('.three-days-more-info-wrapper'),
 	chartButton: document.querySelector('.chart-button'),
+	chartButtonClose: document.querySelector('.chart-button-close'),
+	chartContainer: document.querySelector('.chart-container'),
 };

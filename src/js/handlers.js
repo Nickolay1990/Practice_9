@@ -90,8 +90,27 @@ export function switchOneDay() {
 }
 
 export function showMoreInfo() {
+	DOM.moreInfoButtons.forEach(button => (button.style.display = 'none'));
+	DOM.hideInfoButtons.forEach(button => (button.style.display = 'block'));
 	IS_OPEN_MORE_INFO = true;
 	renderMoreInfo(RESPONSE_WEATHER);
 	initMoreInfoSwiper();
 	DOM.moreInfoBlock.style.display = 'block';
+}
+
+export function hideMoreInfo() {
+	DOM.hideInfoButtons.forEach(button => (button.style.display = 'none'));
+	DOM.moreInfoButtons.forEach(button => (button.style.display = 'block'));
+	IS_OPEN_MORE_INFO = false;
+	DOM.moreInfoBlock.style.display = 'none';
+}
+
+export function showChartInfo(event) {
+	DOM.chartContainer.style.display = 'block';
+	event.currentTarget.style.display = 'none';
+}
+
+export function hideChartInfo() {
+	DOM.chartContainer.style.display = 'none';
+	DOM.chartButton.style.display = 'flex';
 }

@@ -13,6 +13,11 @@ DOM.switchOneDay.addEventListener('click', handlers.switchOneDay);
 DOM.moreInfoButtons.forEach(button =>
 	button.addEventListener('click', handlers.showMoreInfo)
 );
+DOM.hideInfoButtons.forEach(button =>
+	button.addEventListener('click', handlers.hideMoreInfo)
+);
+DOM.chartButton.addEventListener('click', handlers.showChartInfo);
+DOM.chartButtonClose.addEventListener('click', handlers.hideChartInfo);
 
 renderFavorites();
 setDate();
